@@ -51,8 +51,18 @@ a {
     align-items: center;
     padding-top: 10px;
     justify-content: space-between;
-    margin: 0px 20px 0px 3px
+    margin: 0px 20px 0px 3px;
 } 
+
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #193e61;
+    opacity: 0.9;
+    z-index: 2;
+    margin: auto 0;
+}
  
 .navbar img{
     width: 50px;
@@ -221,6 +231,8 @@ nav{
 }
 
 button {
+    display: flex;
+    align-items: center;
     width: 150px;
     height: 80px;
     border: none;
@@ -307,12 +319,29 @@ footer h1{
 }
 
 @media (min-width: 1024px){
-    nav a{
-        font-size: 20px;
+    nav {
+        display: flex;
+        flex-direction: row;
     }
 
-    nav a:hover{
-        border-bottom: #fff 2px solid;
+    nav a{
+        font-size: 20px;
+        padding-right: 5px;
+    }
+
+    nav a::after{
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        transition: .3s;
+        background: #fff;
+        text-decoration: none;
+    }
+       
+    nav a:hover::after {
+        width: 100%;
+        background: solid 1px;
     }
 
     h1{
@@ -362,6 +391,11 @@ footer h1{
         height: 70px;
     }
 
+    .cards {
+        display: flex;
+        justify-content: center;
+    }
+
     .cards a {
         max-width: 20%;
     }
@@ -380,7 +414,6 @@ footer h1{
 
     button p{
         font-size: 25px;
-        margin-top: -5px;
     }
 
     footer p{
